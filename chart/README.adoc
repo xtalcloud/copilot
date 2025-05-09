@@ -16,6 +16,11 @@ data:
   CLIENT_SECRET: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ----
 
+
+You also need to have the Docker registry credentials stored on the cluster
+
+	kubectl create -n ziinc-copilot secret docker-registry regcred --docker-server=ghcr.io/ziincinc/copilot/ziinc-copilot --docker-username=USERNAME --docker-password=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 == Installation
 
 [source,shell]

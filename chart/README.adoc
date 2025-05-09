@@ -28,4 +28,7 @@ You also need to have the Docker registry credentials stored on the cluster
  helm install --create-namespace -n ziinc-copilot .
 ----
 
-
+[source,shell]
+----
+helm upgrade -n ziinc-copilot copilot . --set doToken=dop_v1_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----

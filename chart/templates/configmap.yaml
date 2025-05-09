@@ -5,5 +5,5 @@ metadata:
   namespace: ziinc-copilot
 data:
   PORT: 8080
-  FQDN: https://{{ .Values.ingress.host }}
+  FQDN: "https://{{ .Values.ingress.host }}"
 

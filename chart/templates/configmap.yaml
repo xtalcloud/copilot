@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ziinc-copilot
+  namespace: ziinc-copilot
+data: {}
+

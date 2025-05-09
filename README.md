@@ -1,19 +1,8 @@
-# Retrieval Augmented Generation Extensions Sample
+# `ziinc-copilot`
 
-## Description
 This project is a Go application that demonstrates how to use retrieval augmented generation in an agent-based GitHub Copilot Extension.
 
-## Prerequisites
 
-- Go 1.16 or higher
-- Set the following environment variables (example below):
-
-```
-export PORT=8080
-export CLIENT_ID=Iv1.0ae52273ad3193eb // the application id
-export CLIENT_SECRET="your_client_secret" // generate a new client secret for your application
-export FQDN=https://6de513480979.ngrok.app // use ngrok to expose a url
-```
 
 ## Installation:
 1. Clone the repository: 

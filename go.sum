@@ -1,3 +1,5 @@
+github.com/copilot-extensions/rag-extension v0.0.0-20250311165245-320c04da833a h1:QjwAtDPBULi5JM5jGHXSdtXF52eKI/YRivbVClUNvDQ=
+github.com/copilot-extensions/rag-extension v0.0.0-20250311165245-320c04da833a/go.mod h1:65cJlR4ShjZMjTMPGEjzsvaY1XXcXWNmKzVxtY/0SVs=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=

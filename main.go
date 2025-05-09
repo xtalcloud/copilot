@@ -13,7 +13,7 @@ import (
 
 	"github.com/kriipke/copilot-extension/agent"
 	"github.com/kriipke/copilot-extension/config"
-	"github.com/kriipke/copilot-extension/ouath"
+	"github.com/kriipke/copilot-extension/oauth"
 )
 
 func main() {

@@ -3,5 +3,7 @@ kind: ConfigMap
 metadata:
   name: ziinc-copilot
   namespace: ziinc-copilot
-data: {}
+data:
+  PORT: 8080
+  FQDN: https://{{ .Values.ingress.host }}
 

@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   rules:
-  - host: ziinc.dev
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
       - path: /copilot
@@ -20,5 +20,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - ziinc.dev
+    - {{ .Values.ingress.host }}
     secretName: ziinc-tls

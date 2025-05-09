@@ -1,0 +1,24 @@
+
+== Prerequisitess
+
+
+The installation expects a Kubernetes Secret containing your GitHub App credentials.
+
+[source,yaml]
+----
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ziinc-copilot
+  namespace: ziinc-copilot
+data:
+  CLIENT_ID: Iv23XXXXXXXXXXXXXXXX
+  CLIENT_SECRET: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+----
+
+== Installation
+
+[source,shell]
+----
+ helm install --create-namespace -n ziinc-copilot .
+----

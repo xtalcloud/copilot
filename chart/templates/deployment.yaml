@@ -23,3 +23,8 @@ spec:
           value: "https://{{ .Values.ingress.host }}/"
         - name: PORT
           value: "8080"
+				envFrom:
+				- configMapRef:
+						name: ziinc-copilot
+				- secretRef:
+						name: ziinc-copilot

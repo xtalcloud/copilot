@@ -3,4 +3,6 @@ image:
   tag: main
 
 ingress:
-  host: ziinc.dev
+  host: copilot.ziinc.dev
+
+tlsSecret: ziinc-tls

@@ -1,0 +1,27 @@
+name: Container Build - API
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Dockerfile'
+      - '*.go'
+      - '.github/workflows/build-api.yaml'
+      - './.github/workflows/docker-build-publish.yaml'
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  attestations: write
+  id-token: write
+
+jobs:
+  build-api:
+    uses: ./.github/workflows/docker-build-publish.yaml
+    with:
+      context: .
+      dockerfile: ./Dockerfile
+      image-name: api

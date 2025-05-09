@@ -1,5 +1,5 @@
 # Start by building the Go application
-FROM golang:1.24 as builder
+FROM golang:1.21 as builder
 
 # Set the working directory inside the container
 WORKDIR /app

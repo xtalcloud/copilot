@@ -1,1 +1,6 @@
----
+image:
+  repository:  ghcr.io/ziincinc/copilot/ziinc-copilot
+  tag: main
+
+ingress:
+  host: ziinc.dev

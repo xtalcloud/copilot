@@ -15,11 +15,11 @@ spec:
     spec:
       containers:
       - name: ziinc-copilot
-        image: your-docker-registry/ziinc-copilot:latest
+        image: {{ .Values.image.repositroy }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 8080
         env:
         - name: HOST
-          value: "https://ziinc.dev"
+          value: "https://{{ .Values.ingress.host }}/"
         - name: PORT
           value: "8080"

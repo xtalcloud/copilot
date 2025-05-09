@@ -15,12 +15,12 @@ spec:
     spec:
       containers:
       - name: ziinc-copilot
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
         ports:
         - containerPort: 8080
         env:
         - name: HOST
-          value: "https://{{ .Values.ingress.host }}/"
+          value: "https://{{ $.Values.ingress.host }}/"
         - name: PORT
           value: "8080"
         envFrom:

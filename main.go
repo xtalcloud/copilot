@@ -24,12 +24,16 @@ func main() {
 }
 
 func run() error {
-	host := os.Getenv("HOST")
-	port := os.Getenv("PORT")
-	if host == "" || port == "" {
-		return fmt.Errorf("HOST and PORT environment variables must be set")
+	// Fetch the public key
+	pubKey, err := fetchPublicKey()
+	if err != nil {
+		return fmt.Errorf("failed to fetch public key: %w", err)
 	}
 
+	config, err := config.New()
+	if err != nil {
+		return fmt.Errorf("error fetching config: %w", err)
+	}
 	me, err := url.Parse(host)
 	if err != nil {
 		return fmt.Errorf("unable to parse HOST environment variable: %w", err)

@@ -1,4 +1,4 @@
-name: Container Build - API
+name: Container Build - ziinc-copilot
 
 on:
   push:
@@ -24,4 +24,4 @@ jobs:
     with:
       context: .
       dockerfile: ./Dockerfile
-      image-name: api
+      image-name: ziinc-copilot

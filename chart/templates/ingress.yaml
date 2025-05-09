@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: copilot-extension-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  rules:
+  - host: ziinc.dev
+    http:
+      paths:
+      - path: /copilot
+        pathType: Prefix
+        backend:
+          service:
+            name: copilot-extension
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - ziinc.dev
+    secretName: ziinc-tls

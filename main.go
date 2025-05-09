@@ -10,6 +10,7 @@ import (
 	"net/url"
 	"os"
 	"strings"
+        "log"
 
 	"github.com/kriipke/copilot-extension/agent"
 	"github.com/kriipke/copilot-extension/config"

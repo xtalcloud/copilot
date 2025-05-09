@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ziinc-copilot
-  namespace: default
+  namespace: ziinc-copilot
 spec:
   replicas: 2
   selector:

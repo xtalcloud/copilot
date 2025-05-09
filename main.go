@@ -30,10 +30,9 @@ func run() error {
 		return fmt.Errorf("HOST and PORT environment variables must be set")
 	}
 
-	// Fetch the public key
 	pubKey, err := fetchPublicKey()
 	if err != nil {
-		return fmt.Errorf("failed to fetch public key: %w", err)
+			log.Fatalf("failed to fetch public key: %v", err)
 	}
 
 	config, err := config.New()

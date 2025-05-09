@@ -198,17 +198,26 @@ type asn1Signature struct {
 }
 
 func validPayload(data []byte, sig string, publicKey *ecdsa.PublicKey) (bool, error) {
-	asnSig, err := base64.StdEncoding.DecodeString(sig)
-	parsedSig := asn1Signature{}
-	if err != nil {
-		return false, err
-	}
-	rest, err := asn1.Unmarshal(asnSig, &parsedSig)
-	if err != nil || len(rest) != 0 {
-		return false, err
-	}
+    asnSig, err := base64.StdEncoding.DecodeString(sig)
+    if err != nil {
+        return false, fmt.Errorf("failed to decode signature: %w", err)
+    }
 
-	// Verify the SHA256 encoded payload against the signature with GitHub's Key
-	digest := sha256.Sum256(data)
-	return ecdsa.Verify(publicKey, digest[:], parsedSig.R, parsedSig.S), nil
+    parsedSig := asn1Signature{}
+    rest, err := asn1.Unmarshal(asnSig, &parsedSig)
+    if err != nil {
+        return false, fmt.Errorf("failed to unmarshal ASN.1 signature: %w, remaining bytes: %x", err, rest)
+    }
+
+    if len(rest) != 0 {
+        return false, fmt.Errorf("unexpected trailing bytes in ASN.1 signature: %x", rest)
+    }
+
+    digest := sha256.Sum256(data)
+    isValid := ecdsa.Verify(publicKey, digest[:], parsedSig.R, parsedSig.S)
+    if !isValid {
+        return false, errors.New("payload signature verification failed")
+    }
+
+    return true, nil
 }

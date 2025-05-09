@@ -24,17 +24,13 @@ func main() {
 }
 
 func run() error {
-	pubKey, err := fetchPublicKey()
-	if err != nil {
-		return fmt.Errorf("failed to fetch public key: %w", err)
+	host := os.Getenv("HOST")
+	port := os.Getenv("PORT")
+	if host == "" || port == "" {
+		return fmt.Errorf("HOST and PORT environment variables must be set")
 	}
 
-	config, err := config.New()
-	if err != nil {
-		return fmt.Errorf("error fetching config: %w", err)
-	}
-
-	me, err := url.Parse(config.FQDN)
+	me, err := url.Parse(host)
 	if err != nil {
 		return fmt.Errorf("unable to parse HOST environment variable: %w", err)
 	}
@@ -49,8 +45,8 @@ func run() error {
 
 	http.HandleFunc("/agent", agentService.ChatCompletion)
 
-	fmt.Println("Listening on port", config.Port)
-	return http.ListenAndServe(":"+config.Port, nil)
+	fmt.Println("Listening on port", port)
+	return http.ListenAndServe(":"+port, nil)
 }
 
 // fetchPublicKey fetches the keys used to sign messages from copilot.  Checking

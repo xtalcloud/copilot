@@ -19,7 +19,7 @@ permissions:
   id-token: write
 
 jobs:
-  build-api:
+  build-copilot:
     uses: ./.github/workflows/docker-build-publish.yaml
     with:
       context: .

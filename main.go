@@ -11,9 +11,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/copilot-extensions/rag-extension/agent"
-	"github.com/copilot-extensions/rag-extension/config"
-	"github.com/copilot-extensions/rag-extension/oauth"
+	"github.com/kriipke/copilot-extension/agent"
+	"github.com/kriipke/copilot-extension/config"
+	"github.com/kriipke/copilot-extension/ouath"
 )
 
 func main() {

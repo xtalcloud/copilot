@@ -1,4 +1,4 @@
-module github.com/copilot-extensions/rag-extension
+module github.com/kriipke/copilot-extension/auth
 
 go 1.21
 

@@ -1,20 +1,12 @@
-apiVersion: v1
-items:
-- apiVersion: cert-manager.io/v1
-  kind: Certificate
-  metadata:
-    name: {{ .Values.ingress.host }}
-    namespace: ziinc-copilot
-  spec:
-    commonName: ziinc-copilot
-    dnsNames:
-    - '*.{{ .Values.ingress.host }}'
-    - {{ .Values.ingress.host }}
-    issuerRef:
-      group: cert-manager.io
-      kind: Issuer
-      name: letsencrypt-wcard
-    secretName: ziinc-tls
-kind: List
+apiVersion: cert-manager.io/v1
+kind: Certificate
 metadata:
-  resourceVersion: ""
+  name: {{ .Values.ingress.host }}
+  namespace: ziinc-copilot
+spec:
+  dnsNames:
+  - {{ .Values.ingress.host }}
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-webhook-dnsimple-staging
+  secretName: ziinc-tls

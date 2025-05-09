@@ -4,6 +4,8 @@
 
 The installation expects a Kubernetes Secret containing your GitHub App credentials.
 
+=== GitHub App Credentials
+
 [source,yaml]
 ----
 apiVersion: v1
@@ -16,6 +18,23 @@ data:
   CLIENT_SECRET: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ----
 
+
+=== DNSimple `cert-manager` Issuer
+
+[source,shell]
+----
+$ helm repo add certmanager-webhook https://puzzle.github.io/cert-manager-webhook-dnsimple
+$ helm install cert-manager-webhook-dnsimple \
+    --dry-run \ # remove once you are sure the values are correct
+    --namespace cert-manager \
+    --set dnsimple.token='<DNSIMPLE_API_TOKEN>' \
+    --set clusterIssuer.production.enabled=true \
+    --set clusterIssuer.staging.enabled=true \
+    --set clusterIssuer.email=<ISSUER_MAIL> \
+    certmanager-webhook/cert-manager-webhook-dnsimple
+----
+
+=== ImagePullSecret
 
 You also need to have the Docker registry credentials stored on the cluster
 

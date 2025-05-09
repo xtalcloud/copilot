@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: copilot-extension
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: copilot-extension
+  template:
+    metadata:
+      labels:
+        app: copilot-extension
+    spec:
+      containers:
+      - name: copilot-extension
+        image: your-docker-registry/copilot-extension:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: HOST
+          value: "https://kubedash.io"
+        - name: PORT
+          value: "8080"

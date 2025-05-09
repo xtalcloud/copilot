@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: copilot-extension
+  name: ziinc-copilot
   namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: copilot-extension
+      app: ziinc-copilot
   template:
     metadata:
       labels:
-        app: copilot-extension
+        app: ziinc-copilot
     spec:
       containers:
-      - name: copilot-extension
-        image: your-docker-registry/copilot-extension:latest
+      - name: ziinc-copilot
+        image: your-docker-registry/ziinc-copilot:latest
         ports:
         - containerPort: 8080
         env:
         - name: HOST
-          value: "https://kubedash.io"
+          value: "https://ziinc.dev"
         - name: PORT
           value: "8080"
